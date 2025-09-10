@@ -14,6 +14,10 @@ public class Treadhs {
                 Treadhs t = new Treadhs();
                 int resultado = t.forparalelo((int) id);
                 System.out.println("Resultado: " + resultado);
+
+                for (int j = 0; j < 10; j++) {
+                    System.out.println("Thread ID: " + id + " - Count: " + j);
+                }
             });
         }
 
