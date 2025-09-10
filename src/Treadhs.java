@@ -27,6 +27,10 @@ public class Treadhs {
                         System.out.println("Thread ID: " + id + " foi interrompida.");
                         return; // Sai do loop se a thread foi interrompida
                     }
+                    if(j == 7 && id % 2 == 0) { // Interrompe threads com ID par quando j é 7
+                        System.out.println("Interrompendo a thread ID: " + id);
+                        Thread.currentThread().interrupt(); // Interrompe a thread atual
+                    }
                 }
             });
         }
