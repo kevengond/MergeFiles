@@ -23,6 +23,10 @@ public class Treadhs {
                     if(j == 5){
                         LockSupport.parkNanos(500_000_000); // Pausa por 0.5 segundos
                     }
+                    while(Thread.interrupted()) {
+                        System.out.println("Thread ID: " + id + " foi interrompida.");
+                        return; // Sai do loop se a thread foi interrompida
+                    }
                 }
             });
         }
