@@ -23,6 +23,14 @@ public class Treadhs {
                     if(j == 5){
                         LockSupport.parkNanos(500_000_000); // Pausa por 0.5 segundos
                     }
+                    while(Thread.interrupted()) {
+                        System.out.println("Thread ID: " + id + " foi interrompida.");
+                        return; // Sai do loop se a thread foi interrompida
+                    }
+                    if(j == 7 && id % 2 == 0) { // Interrompe threads com ID par quando j é 7
+                        System.out.println("Interrompendo a thread ID: " + id);
+                        Thread.currentThread().interrupt(); // Interrompe a thread atual
+                    }
                 }
             });
         }
