@@ -17,6 +17,9 @@ public class Treadhs {
 
                 for (int j = 0; j < 10; j++) {
                     System.out.println("Thread ID: " + id + " - Count: " + j);
+                    if(j == 5){
+                        LockSupport.parkNanos(500_000_000); // Pausa por 0.5 segundos
+                    }
                 }
             });
         }
